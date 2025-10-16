@@ -1,19 +1,26 @@
+/* ====================================
+ * 1. VARIABLES Y ESTILOS GLOBALES
+ * ==================================== */
+:root {
+    --primary-color: #ca0000; /* Rojo principal de Cabré, unificado */
+    --secondary-color: #000;  /* Negro */
+    --text-light: #fff;
+    --text-dark: #333;
+    --bg-dark: #1a1a1a;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', 'Raleway', sans-serif;
-}
-
-:root {
-    --primary-color: #ff4d00;
-    --secondary-color: #000;
-    --text-light: #fff;
+    /* Fuente de contenido unificada */
+    font-family: 'Poppins', 'Raleway', 'Montserrat', sans-serif; 
 }
 
 body {
+    line-height: 1.6;
+    color: var(--text-dark);
     background-color: #fff;
-    color: #333;
 }
 
 .container {
@@ -22,9 +29,27 @@ body {
     margin: 0 auto;
 }
 
-/* --------------------
- * HEADER (ESTANDARIZADO)
- * -------------------- */
+/* Botón principal */
+.btn {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    align-self: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-weight: 700;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* ====================================
+ * 2. HEADER Y NAVEGACIÓN
+ * ==================================== */
 header {
     background: var(--secondary-color);
     color: var(--text-light);
@@ -32,68 +57,44 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
 }
-header .logo {
-    font-weight: bold;
-    font-size: 20px;
-    background: var(--primary-color);
-    padding: 6px 12px;
-    border-radius: 8px;
-    /* Aseguramos que el logo no se encoja */
-    flex-shrink: 0; 
+.logo {
+    font-weight: 700;
+    font-size: 1.8em;
+    color: var(--primary-color);
+    flex-shrink: 0;
 }
 nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    /* Para prevenir que se envuelvan */
     flex-wrap: nowrap; 
+    padding-left: 0;
+    margin: 0;
 }
-nav a {
+nav a, .nav a {
     color: var(--text-light);
     text-decoration: none;
     font-weight: bold;
     padding-bottom: 2px;
     transition: color 0.3s, border-bottom 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9em;
 }
 nav a:hover,
-nav a.active {
+nav a.active,
+.nav a:hover,
+.nav a.active {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* --------------------
- * FIX RESPONSIVO: PANTALLAS PEQUEÑAS
- * -------------------- */
-@media (max-width: 768px) {
-    /* El header cambia a columna para apilar el logo y la nav */
-    header {
-        flex-direction: column;
-        align-items: flex-start; /* Alinea logo a la izquierda */
-        padding: 15px 20px;
-    }
-    header .logo {
-        margin-bottom: 15px; /* Espacio entre logo y nav */
-    }
-
-    /* La navegación se convierte en una lista vertical */
-    nav {
-        width: 100%; /* Ocupa todo el ancho */
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 10px; /* Menor espacio entre enlaces */
-        align-items: flex-start; /* Alinea los enlaces a la izquierda */
-        padding-left: 0; /* Remueve padding por defecto de la lista ul */
-    }
-    nav a {
-        display: block; /* Ocupa todo el espacio para el clic */
-        padding: 5px 0;
-    }
-}
-/* --------------------
- * PÁGINA DE INICIO (HOME)
- * -------------------- */
+/* ====================================
+ * 3. PÁGINA DE INICIO (INDEX)
+ * ==================================== */
 
 /* SLIDER */
 .slider {
@@ -102,35 +103,22 @@ nav a.active {
     background: #222;
 }
 
-/* BENEFICIOS (FIX GARANTÍA Y MULTIMARCAS) */
+/* BENEFICIOS (Garantía, Multimarcas) */
 .benefits {
-    background: #eee; /* Fondo gris para toda la barra */
-    padding: 20px 0; /* Relleno vertical */
-    /* Usaremos las clases de Bootstrap (d-flex, justify-content-around) en el HTML, 
-       pero mantenemos el contenedor centrado para mayor seguridad */
+    background: #eee;
+    padding: 20px 0;
 }
-
-/* El contenedor interno .container ya no necesita display:flex aquí si usamos las clases de Bootstrap en el HTML de la sección 'benefits' */
-/* .benefits .container { 
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-} */
-
 .benefit {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Ajuste de responsividad para móviles */
     padding: 10px 0; 
 }
-
 .benefit .icon {
     font-size: 24px;
     color: var(--primary-color);
-    min-width: 24px; /* Asegura que el ícono tenga espacio */
+    min-width: 24px;
 }
-
 
 /* AUTOS DESTACADOS */
 .vehicles {
@@ -139,15 +127,12 @@ nav a.active {
     align-items: center;
     padding: 40px 0;
 }
-
-/* Hacemos que las tarjetas fluyan responsivamente */
 .card-wrapper {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* PERMITE QUE LAS TARJETAS BAJEN EN PANTALLAS PEQUEÑAS */
+    flex-wrap: wrap;
     max-width: 100%;
 }
-
 .vehicle-card {
     width: 250px;
     border: 1px solid #ccc;
@@ -155,22 +140,8 @@ nav a.active {
     overflow: hidden;
     margin: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    /* Responsividad simple */
     flex: 0 0 250px; 
 }
-@media (max-width: 850px) {
-    .vehicle-card {
-        flex: 1 1 45%; /* 2 tarjetas por fila */
-        max-width: 45%;
-    }
-}
-@media (max-width: 550px) {
-    .vehicle-card {
-        flex: 1 1 90%; /* 1 tarjeta por fila en móviles */
-        max-width: 90%;
-    }
-}
-
 .vehicle-card img {
     width: 100%;
     height: auto;
@@ -183,25 +154,7 @@ nav a.active {
     margin-bottom: 5px;
 }
 
-.btn {
-    background: var(--primary-color);
-    color: var(--text-light);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 20px;
-    cursor: pointer;
-    /* Centrar botón si se desea, o mantener alineado a la izquierda del contenido principal */
-    align-self: center; /* Centra el botón en relación al .vehicles container */
-    margin-left: 0;
-    text-decoration: none;
-}
-.btn:hover {
-    opacity: 0.9;
-}
-
-
-/* SECCIÓN DE MARCAS */
+/* MARCAS */
 .brands {
     padding: 40px 0;
     text-align: center;
@@ -223,15 +176,11 @@ nav a.active {
     opacity: 1;
 }
 
-/* TESTIMONIALS (NUESTROS CLIENTES) */
-/* Esta sección usará las clases de Grid de Bootstrap (row, col) en el HTML 
-   para la alineación horizontal. Añadimos un poco de estilo base. */
+/* TESTIMONIALS (sección que usa Bootstrap Grid) */
 .testimonials {
     padding: 40px 0;
-    /* El estilo de .testimonial se manejará principalmente en el HTML con Bootstrap */
 }
 .testimonial {
-    /* Estilos de la tarjeta de testimonio base */
     text-align: center;
 }
 .testimonial h4 {
@@ -243,47 +192,22 @@ nav a.active {
     font-size: 1.2em;
 }
 
-
-/* ---------------------------------
- * ESTILOS DE QUIÉNES SOMOS
- * --------------------------------- */
+/* ====================================
+ * 4. PÁGINA QUIÉNES SOMOS
+ * ==================================== */
 .content-section {
-    padding: 40px 0 80px;
+    padding: 40px 0 80px 0;
 }
 
-/* HERO SECTION (IMAGEN A PANTALLA COMPLETA) */
+/* HERO SECTION (Banner de imagen) */
 .hero {
     position: relative;
     width: 100%;
     height: 400px; 
-    background-image: url('quienes_somos_web.jpg');
+    background-image: url('../quienes_somos_web.jpg'); /* Ajustar ruta de imagen */
     background-size: cover;
     background-position: center 30%; 
     margin: 0; 
-}
-
-.hero-breadcrumb {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%;
-    color: #333; 
-    font-size: 0.8em;
-    padding: 15px 0; 
-    background-color: #fff; 
-    z-index: 5;
-    font-weight: bold;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.hero-breadcrumb .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start; 
-}
-.hero-breadcrumb .active-crumb {
-    color: var(--primary-color);
 }
 .hero-overlay {
     position: absolute;
@@ -291,10 +215,26 @@ nav a.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Capa oscura para mejorar legibilidad */
+    background: rgba(0, 0, 0, 0.4); 
+}
+.hero-breadcrumb {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    color: var(--text-dark);
+    font-size: 0.8em;
+    padding: 15px 0; 
+    background-color: #fff;
+    z-index: 5;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.hero-breadcrumb .active-crumb {
+    color: var(--primary-color);
 }
 
-/* TÍTULO PRINCIPAL */
+/* Contenido Principal */
 .main-title {
     margin-top: 40px; 
     text-align: center;
@@ -304,13 +244,15 @@ nav a.active {
     color: #000;
 }
 .intro-text {
-    font-size: 1.1em;
-    line-height: 1.6;
-    text-align: center;
-    margin-bottom: 50px;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    text-align: justify;
+    font-size: 1em;
+    color: #555;
+    line-height: 1.8;
 }
 
-/* MISIÓN Y VISIÓN (Split Content) */
+/* Misión/Visión (Split Content) */
 .split-content {
     display: flex;
     justify-content: space-between;
@@ -318,53 +260,196 @@ nav a.active {
     margin-top: 40px;
 }
 .content-block {
-    flex: 1; /* Ocupan igual espacio */
+    flex: 1;
     padding: 20px;
     border-left: 3px solid var(--primary-color);
     background-color: #f9f9f9;
 }
 .block-title {
-    color: var(--primary-color);
-    font-weight: 700;
+    font-size: 1.8em;
     margin-bottom: 15px;
+    font-weight: 700; 
+    color: var(--secondary-color);
+    text-transform: uppercase;
 }
-/* Responsividad para Misión/Visión */
-@media (max-width: 768px) {
-    .split-content {
-        flex-direction: column;
-        gap: 20px;
-    }
+.content-block p {
+    text-align: justify;
+    color: #555;
+    line-height: 1.7;
 }
 
+/* ====================================
+ * 5. PÁGINA DE CONTACTO
+ * ==================================== */
+.contacto-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+.contacto-container h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
 
-/* --------------------
- * FOOTER (ESTANDARIZADO)
- * -------------------- */
+/* FORMULARIO */
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    padding: 20px;
+    background: var(--text-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.contacto-form input,
+.contacto-form textarea,
+.contacto-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    color: var(--text-dark);
+    transition: border-color 0.3s;
+}
+.contacto-form button[type="submit"]:hover {
+    background-color: #b30000;
+}
+
+/* CONTACTO INFO (Mapa y datos) */
+.contacto-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 40px;
+    text-align: left;
+}
+.contacto-info iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.contacto-info .info {
+    font-size: 1.05em;
+    padding-top: 10px;
+}
+.contacto-info .info p {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+/* ====================================
+ * 6. FOOTER
+ * ==================================== */
 footer {
     background: var(--secondary-color);
-    color: var(--text-light);
+    color: #aaa;
     text-align: center;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-footer a {
+footer p a {
     color: var(--primary-color);
     text-decoration: none;
-    margin: 5px 0;
-}
-footer .social {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap; /* Permite que los enlaces sociales se envuelvan */
-    justify-content: center;
-}
-footer .social a {
-    color: var(--text-light);
-    margin: 0 10px;
     transition: color 0.3s;
 }
-footer .social a:hover {
+footer .social, .redes {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+footer .social a, .redes a {
+    color: var(--text-light);
+    font-size: 1.2em; /* Para íconos de Font Awesome */
+    transition: color 0.3s;
+}
+footer .social a:hover, .redes a:hover {
     color: var(--primary-color);
+}
+footer .social img, .redes img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+
+/* ====================================
+ * 7. RESPONSIVENESS (Media Queries)
+ * ==================================== */
+@media (max-width: 768px) {
+    /* HEADER */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    header .logo {
+        margin-bottom: 15px;
+    }
+    nav {
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    nav a, .nav a {
+        display: block;
+        padding: 5px 0;
+    }
+
+    /* HOME PAGE */
+    .vehicle-card {
+        flex: 1 1 90%;
+        max-width: 90%;
+    }
+    .benefits {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .benefit {
+        margin: 0 20px;
+    }
+    
+    /* QUIENES SOMOS */
+    .split-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .content-block {
+        border-left: none; /* Mejor visualización en móvil */
+        border-top: 3px solid var(--primary-color);
+    }
+
+    /* CONTACTO */
+    .contacto-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .contacto-info iframe {
+        width: 100%;
+        max-width: none;
+        height: 250px;
+    }
+    .contacto-info .info {
+        text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 20px 20px;
+    }
 }
