@@ -1,19 +1,19 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Raleway', sans-serif;
 }
 
 :root {
-  --primary-color: #ff4d00;
-  --secondary-color: #000;
-  --text-light: #fff;
+    --primary-color: #ff4d00;
+    --secondary-color: #000;
+    --text-light: #fff;
 }
 
 body {
-  background-color: #fff;
-  color: #333;
+    background-color: #fff;
+    color: #333;
 }
 
 .container {
@@ -26,137 +26,254 @@ body {
  * HEADER (ESTANDARIZADO)
  * -------------------- */
 header {
-  background: var(--secondary-color);
-  color: var(--text-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
+    background: var(--secondary-color);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
 }
 header .logo {
-  font-weight: bold;
-  font-size: 20px;
-  background: var(--primary-color);
-  padding: 6px 12px;
-  border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    background: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    /* Aseguramos que el logo no se encoja */
+    flex-shrink: 0; 
 }
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    /* Para prevenir que se envuelvan */
+    flex-wrap: nowrap; 
 }
 nav a {
-  color: var(--text-light);
-  text-decoration: none;
-  font-weight: bold;
-  padding-bottom: 2px;
-  transition: color 0.3s, border-bottom 0.3s;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 2px;
+    transition: color 0.3s, border-bottom 0.3s;
 }
 nav a:hover,
 nav a.active {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
+/* --------------------
+ * FIX RESPONSIVO: PANTALLAS PEQUEÑAS
+ * -------------------- */
+@media (max-width: 768px) {
+    /* El header cambia a columna para apilar el logo y la nav */
+    header {
+        flex-direction: column;
+        align-items: flex-start; /* Alinea logo a la izquierda */
+        padding: 15px 20px;
+    }
+    header .logo {
+        margin-bottom: 15px; /* Espacio entre logo y nav */
+    }
+
+    /* La navegación se convierte en una lista vertical */
+    nav {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px; /* Menor espacio entre enlaces */
+        align-items: flex-start; /* Alinea los enlaces a la izquierda */
+        padding-left: 0; /* Remueve padding por defecto de la lista ul */
+    }
+    nav a {
+        display: block; /* Ocupa todo el espacio para el clic */
+        padding: 5px 0;
+    }
+}
 /* --------------------
  * PÁGINA DE INICIO (HOME)
  * -------------------- */
 
 /* SLIDER */
 .slider {
-  position: relative;
-  height: 300px;
-  background: #222;
+    position: relative;
+    height: 300px;
+    background: #222;
 }
 
-/* BENEFICIOS */
+/* BENEFICIOS (FIX GARANTÍA Y MULTIMARCAS) */
 .benefits {
-  background: #eee; /* Fondo gris para toda la barra */
-  padding: 20px 0; /* Relleno vertical */
+    background: #eee; /* Fondo gris para toda la barra */
+    padding: 20px 0; /* Relleno vertical */
+    /* Usaremos las clases de Bootstrap (d-flex, justify-content-around) en el HTML, 
+       pero mantenemos el contenedor centrado para mayor seguridad */
 }
 
-/* FIX: Aplicamos el Flex al contenedor interno para la alineación horizontal */
-.benefits .container { 
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-}
+/* El contenedor interno .container ya no necesita display:flex aquí si usamos las clases de Bootstrap en el HTML de la sección 'benefits' */
+/* .benefits .container { 
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+} */
 
 .benefit {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Ajuste de responsividad para móviles */
+    padding: 10px 0; 
 }
 
 .benefit .icon {
-  font-size: 24px;
-  color: var(--primary-color);
+    font-size: 24px;
+    color: var(--primary-color);
+    min-width: 24px; /* Asegura que el ícono tenga espacio */
 }
 
 
 /* AUTOS DESTACADOS */
 .vehicles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
 }
 
+/* Hacemos que las tarjetas fluyan responsivamente */
 .card-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* PERMITE QUE LAS TARJETAS BAJEN EN PANTALLAS PEQUEÑAS */
+    max-width: 100%;
 }
 
 .vehicle-card {
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Responsividad simple */
+    flex: 0 0 250px; 
+}
+@media (max-width: 850px) {
+    .vehicle-card {
+        flex: 1 1 45%; /* 2 tarjetas por fila */
+        max-width: 45%;
+    }
+}
+@media (max-width: 550px) {
+    .vehicle-card {
+        flex: 1 1 90%; /* 1 tarjeta por fila en móviles */
+        max-width: 90%;
+    }
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: auto;
+}
+.vehicle-info {
+    padding: 15px;
+}
+.vehicle-info h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
 }
 
 .btn {
-  background: var(--primary-color);
-  color: var(--text-light);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 20px;
-  cursor: pointer;
-  align-self: flex-start;
-  margin-left: 10%;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    /* Centrar botón si se desea, o mantener alineado a la izquierda del contenido principal */
+    align-self: center; /* Centra el botón en relación al .vehicles container */
+    margin-left: 0;
+    text-decoration: none;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+/* SECCIÓN DE MARCAS */
+.brands {
+    padding: 40px 0;
+    text-align: center;
+}
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+.brand-logos img {
+    max-width: 100px;
+    height: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.brand-logos img:hover {
+    opacity: 1;
+}
+
+/* TESTIMONIALS (NUESTROS CLIENTES) */
+/* Esta sección usará las clases de Grid de Bootstrap (row, col) en el HTML 
+   para la alineación horizontal. Añadimos un poco de estilo base. */
+.testimonials {
+    padding: 40px 0;
+    /* El estilo de .testimonial se manejará principalmente en el HTML con Bootstrap */
+}
+.testimonial {
+    /* Estilos de la tarjeta de testimonio base */
+    text-align: center;
+}
+.testimonial h4 {
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+.stars {
+    color: gold;
+    font-size: 1.2em;
 }
 
 
 /* ---------------------------------
  * ESTILOS DE QUIÉNES SOMOS
  * --------------------------------- */
+.content-section {
+    padding: 40px 0 80px;
+}
 
 /* HERO SECTION (IMAGEN A PANTALLA COMPLETA) */
 .hero {
-  position: relative;
-  width: 100%;
-  height: 400px; 
-  background-image: url('quienes_somos_web.jpg');
-  background-size: cover;
-  background-position: center 30%; 
-  margin: 0; 
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    background-image: url('quienes_somos_web.jpg');
+    background-size: cover;
+    background-position: center 30%; 
+    margin: 0; 
 }
 
 .hero-breadcrumb {
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%;
-  color: #333; 
-  font-size: 0.8em;
-  padding: 15px 0; 
-  background-color: #fff; 
-  z-index: 5;
-  font-weight: bold;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    color: #333; 
+    font-size: 0.8em;
+    padding: 15px 0; 
+    background-color: #fff; 
+    z-index: 5;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 .hero-breadcrumb .container {
     width: 90%;
@@ -166,24 +283,57 @@ nav a.active {
     justify-content: flex-start; 
 }
 .hero-breadcrumb .active-crumb {
-  color: var(--primary-color);
+    color: var(--primary-color);
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Capa oscura para mejorar legibilidad */
 }
 
-/* TÍTULO PRINCIPAL (ESPACIO CON LAS MIGAS DE PAN) */
+/* TÍTULO PRINCIPAL */
 .main-title {
-  margin-top: 40px; 
-  text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 30px;
-  font-weight: 300; 
-  color: #000;
+    margin-top: 40px; 
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: 700; 
+    color: #000;
+}
+.intro-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
+/* MISIÓN Y VISIÓN (Split Content) */
 .split-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+.content-block {
+    flex: 1; /* Ocupan igual espacio */
+    padding: 20px;
+    border-left: 3px solid var(--primary-color);
+    background-color: #f9f9f9;
+}
+.block-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+/* Responsividad para Misión/Visión */
+@media (max-width: 768px) {
+    .split-content {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 
@@ -191,13 +341,30 @@ nav a.active {
  * FOOTER (ESTANDARIZADO)
  * -------------------- */
 footer {
-  background: var(--secondary-color);
-  color: var(--text-light);
-  text-align: center;
-  padding: 20px;
+    background: var(--secondary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 5px 0;
+}
+footer .social {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces sociales se envuelvan */
+    justify-content: center;
 }
 footer .social a {
-  color: var(--text-light);
-  margin: 0 5px;
-  text-decoration: none;
+    color: var(--text-light);
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+footer .social a:hover {
+    color: var(--primary-color);
 }

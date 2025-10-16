@@ -1,144 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cabré Automotores</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabré Automotores</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-     <script src="https://kit.fontawesome.com/2c9468d754.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/2c9468d754.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  <header>
-    <div class="logo">CABRÉ</div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="quienes_somos.html">Quienes Somos</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  
+  <header>
+    <div class="logo">CABRÉ</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="quienes_somos.html">Quienes Somos</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="slider">
-    <div class="slider-images">
-      <img src="auto1.jpg" alt="auto 1" />
-      <img src="auto2.jpg" alt="auto 2" />
-    </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </section>
+  <section class="slider">
+    <div class="slider-images">
+      <img src="auto1.jpg" alt="auto 1" />
+      <img src="auto2.jpg" alt="auto 2" />
+    </div>
+        <button class="prev" id="button-prev">&#10094;</button>
+    <button class="next" id="button-next">&#10095;</button>
+  </section>
 
-  <section class="benefits">
-    <div class="benefit">
-      <span class="icon">✔️</span>
-      <div>
-        <h3>Garantía Asegurada</h3>
-        <p>Seguridad en tu compra</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <span class="icon">🚗</span>
-      <div>
-        <h3>Multimarcas</h3>
-        <p>Variedad de modelos y marcas</p>
-      </div>
-    </div>
-  </section>
+    <section class="benefits d-flex justify-content-around py-4">
+    <div class="benefit mx-3">
+      <span class="icon">✔️</span>
+      <div>
+        <h3>Garantía Asegurada</h3>
+        <p>Seguridad en tu compra</p>
+      </div>
+    </div>
+    <div class="benefit mx-3">
+      <span class="icon">🚗</span>
+      <div>
+        <h3>Multimarcas</h3>
+        <p>Variedad de modelos y marcas</p>
+      </div>
+      </div>
+  </section>
 
-  <section class="vehicles">
-    <div class="card-wrapper">
-        <div class="vehicle-card">
-          <img src="vw-polo.jpg" alt="Volkswagen Polo" />
-          <div class="vehicle-info">
-            <h4>Volkswagen Polo</h4>
-            <span class="year">2023</span>
-            <p>Color: Azul</p>
-            <p>Usado</p>
-          </div>
-        </div>
-        <div class="vehicle-card">
-          <img src="vw-polo.jpg" alt="Volkswagen Polo" />
-          <div class="vehicle-info">
-            <h4>Volkswagen Polo</h4>
-            <span class="year">2023</span>
-            <p>Color: Azul</p>
-            <p>Usado</p>
-          </div>
-        </div>
-        <div class="vehicle-card">
-          <img src="vw-polo.jpg" alt="Volkswagen Polo" />
-          <div class="vehicle-info">
-            <h4>Volkswagen Polo</h4>
-            <span class="year">2023</span>
-            <p>Color: Azul</p>
-            <p>Usado</p>
-          </div>
-        </div>
-    </div>
-    <button class="btn">Ver todos los vehículos</button>
-  </section>
+  <section class="vehicles container my-5">
+    <div class="card-wrapper">
+        <div class="vehicle-card">
+          <img src="vw-polo.jpg" alt="Volkswagen Polo" />
+          <div class="vehicle-info">
+            <h4>Volkswagen Polo</h4>
+            <span class="year">2023</span>
+            <p>Color: Azul</p>
+            <p>Usado</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="vw-polo.jpg" alt="Volkswagen Polo" />
+          <div class="vehicle-info">
+            <h4>Volkswagen Polo</h4>
+            <span class="year">2023</span>
+            <p>Color: Azul</p>
+            <p>Usado</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="vw-polo.jpg" alt="Volkswagen Polo" />
+          <div class="vehicle-info">
+            <h4>Volkswagen Polo</h4>
+            <span class="year">2023</span>
+            <p>Color: Azul</p>
+            <p>Usado</p>
+          </div>
+        </div>
+    </div>
+    <button class="btn">Ver todos los vehículos</button>
+  </section>
 
-  <section class="brands">
-    <h3>Elegí las marcas más buscadas</h3>
-    <div class="brand-logos">
-      <img src="img/fiat.jpg" alt="Fiat" />
-      <img src="/img/vw.jpg" alt="Volkswagen" />
-      <img src="honda.png" alt="Honda" />
-      <img src="toyota.png" alt="Toyota" />
-      <img src="ford.png" alt="Ford" />
-      <img src="renault.png" alt="Renault" />
-      <img src="bmw.png" alt="BMW" />
-    </div>
-  </section>
+  <section class="brands container my-5">
+    <h3 class="text-center mb-4">Elegí las marcas más buscadas</h3>
+    <div class="brand-logos d-flex justify-content-around flex-wrap">
+      <img src="img/fiat.jpg" alt="Fiat" />
+      <img src="img/vw.png" alt="Volkswagen" />
+      <img src="img/honda.jpg" alt="Honda" />
+      <img src="img/toyota.jpg" alt="Toyota" />
+      <img src="img/ford.jpg" alt="Ford" />
+      <img src="img/renault.png" alt="Renault" />
+      <img src="img/bmw.png" alt="BMW" />
+  
+    </div>
+<div class="brand-logos d-flex justify-content-around flex-wrap">
+      <img src="img/audi.png" alt="Fiat" />
+      <img src="img/peugeot.png" alt="Volkswagen" />
+      <img src="img/chevrolet.jpg" alt="Honda" />
+      <img src="img/hyundai.png" alt="Toyota" />
+      <img src="img/citroen.png" alt="Ford" />
+      <img src="img/nissan.jpg" alt="Renault" />
+      <img src="img/kia.png" alt="BMW" />
+  
+    </div>
 
-  <section class="testimonials">
-    <h3>Nuestros clientes</h3>
-    <div class="testimonial">
-      <h4>Marcelo López</h4>
-      <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
-      <div class="stars">★★★★★</div>
-    </div>
-    <div class="testimonial">
-      <h4>Marcelo López</h4>
-      <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
-      <div class="stars">★★★★★</div>
-    </div>
-    <div class="testimonial">
-      <h4>Marcelo López</h4>
-      <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
-      <div class="stars">★★★★★</div>
-    </div>
-    <div class="testimonial">
-      <h4>Marcelo López</h4>
-      <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
-      <div class="stars">★★★★★</div>
-    </div>
-  </section>
+  </section>
 
-  <footer>
-    <p>©2023 Cabré Automotores. Todos los derechos reservados.</p>
-    <p><a href="#">Términos y condiciones</a></p>
+    <section class="testimonials container my-5">
+    <h3 class="text-center mb-4">Nuestros clientes</h3>
+    
+    <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="testimonial border p-3 rounded shadow-sm h-100">
+          <h4>Marcelo López</h4>
+          <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="testimonial border p-3 rounded shadow-sm h-100">
+          <h4>Marcelo López</h4>
+          <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="testimonial border p-3 rounded shadow-sm h-100">
+          <h4>Marcelo López</h4>
+          <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="testimonial border p-3 rounded shadow-sm h-100">
+          <h4>Marcelo López</h4>
+          <p>"Excelente atención desde el primer día. Muy recomendable!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <footer>
+    <p>©2025 Cabré Automotores. Todos los derechos reservados.</p>
+    <p>Términos y condiciones</p>
     <div class="social">
-      <a href="#">Instagram</a>
-      <a href="#">Tik Tik</a>
-      <a href="#">Facebook</a>
-      <a href="#">Youtube</a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
     </div>
-  </footer>
+</footer>
 </body>
 </html>
