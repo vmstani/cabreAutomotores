@@ -22,9 +22,15 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: #fff;
-    /* CORRECCIÓN CLAVE: Elimina el margen superior del cuerpo de la página */
+    /* CORRECCIÓN CRÍTICA: Elimina el margen superior del cuerpo de la página */
     margin: 0; 
     padding: 0;
+}
+
+/* --- SOLUCIÓN HEADER/SLIDER: Eliminar margen de MAIN (si existe) --- */
+main {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .container {
@@ -38,7 +44,8 @@ body {
 /* 1. Colocar H3 en bold y reducir el margen inferior */
 h3 {
     font-weight: bold;
-    margin-bottom: 20px; /* Espacio reducido entre título H3 y sección */
+    /* AJUSTE 1: Reducido a 10px (de 15px) para acercar el título a las cards */
+    margin-bottom: 10px; 
 }
 
 /* 2. Botón principal en color rojo */
@@ -116,12 +123,51 @@ nav a.active,
  * ==================================== */
 
 /* SLIDER */
+/* === SLIDER ACTUALIZADO === */
 .slider {
-    position: relative;
-    height: 300px;
-    background: #222;
+  position: relative;
+  height: 300px;
+  background: #222;
+  overflow: hidden;
 }
 
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slider .prev,
+.slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+}
+
+.slider .prev {
+  left: 20px;
+}
+
+.slider .next {
+  right: 20px;
+}
 /* BENEFICIOS (Garantía, Multimarcas) */
 .benefits {
     background: #eee;
@@ -144,14 +190,21 @@ nav a.active,
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* ESPACIO REDUCIDO */
+    /* ESPACIO VERTICAL DE LA SECCIÓN */
     padding: 20px 0; 
 }
+/* AJUSTE TÍTULO ESPECÍFICO */
+.vehicles h3 {
+    margin-bottom: 15px; /* Tightly spaced h3 under .vehicles (re-ajustado) */
+}
+
 .card-wrapper {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     max-width: 100%;
+    /* AJUSTE EXTRA: Si el problema es aquí, quitamos el margen superior de la cuadrícula */
+    margin-top: 0;
 }
 .vehicle-card {
     width: 250px;
@@ -180,6 +233,9 @@ nav a.active,
     padding: 20px 0; 
     text-align: center;
 }
+.brands h3 {
+    margin-bottom: 15px; /* Tightly spaced h3 under .brands */
+}
 .brand-logos {
     display: flex;
     justify-content: center;
@@ -201,6 +257,9 @@ nav a.active,
 .testimonials {
     /* ESPACIO REDUCIDO */
     padding: 20px 0;
+}
+.testimonials h3 {
+    margin-bottom: 15px; /* Tightly spaced h3 under .testimonials */
 }
 .testimonial {
     text-align: center;
@@ -227,7 +286,7 @@ nav a.active,
     position: relative;
     width: 100%;
     height: 400px; 
-    background-image: url('../quienes_somos_web.jpg'); 
+    background-image: url('/img/nosotros.png'); 
     background-size: cover;
     background-position: center 30%; 
     margin: 0; 
@@ -300,7 +359,6 @@ nav a.active,
     color: #555;
     line-height: 1.7;
 }
-
 /* ====================================
  * 5. PÁGINA DE CONTACTO
  * ==================================== */
@@ -586,7 +644,8 @@ footer .social img, .redes img {
   text-align: center;
   font-size: 2em;
   color: var(--secondary-color);
-  margin-bottom: 40px;
+  /* AJUSTE 3: Reducido de 40px a 20px para acercar el título a las tarjetas */
+  margin-bottom: 20px; 
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -656,5 +715,4 @@ footer .social img, .redes img {
     grid-template-columns: 1fr; /* 1 por fila en móvil */
   }
 }
-
 
