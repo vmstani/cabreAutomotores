@@ -572,3 +572,88 @@ footer .social img, .redes img {
         max-width: 90%;
     }
 }
+/* ====================================
+ * SECCIÓN VEHÍCULOS — 3x3 GRID
+ * ==================================== */
+
+.vehicles {
+  padding: 60px 0;
+  background-color: #f8f8f8;
+}
+
+.vehicles h3 {
+  text-align: center;
+  font-size: 2em;
+  color: var(--secondary-color);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ---- Cuadrícula 3 columnas ---- */
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+/* ---- Tarjetas ---- */
+.vehicle-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.vehicle-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.vehicle-info h4 {
+  margin: 5px 0;
+  color: var(--primary-color);
+  font-size: 1.2em;
+}
+
+.vehicle-info .year {
+  display: block;
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.vehicle-info p {
+  margin: 3px 0;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* ---- Responsividad ---- */
+@media (max-width: 992px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr); /* 2 por fila en tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .card-wrapper {
+    grid-template-columns: 1fr; /* 1 por fila en móvil */
+  }
+}
+
+
