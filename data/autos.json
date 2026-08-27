@@ -15,22 +15,6 @@
     "link_wa": "https://wa.me/5491149919122"
   },
   {
-    "id": "toyotaCorolla_4",
-    "titulo": "Toyota ",
-    "marca": "Toyota",
-    "modelo": "Corolla 1.8 Xei Cvt Pack 140cv",
-    "Puertas": "4",
-    "color": "Blanco",
-    "combustible": "Nafta",
-    "transmision": "Automático",
-    "anio": 2015,
-    "Tipo de Carrocería": "Sedán",
-    "Kilometraje": "97.500 km",
-    "imagen": "img/toyotaCorolla.png",
-    "link_wa": "https://wa.me/5491149919122"
-  },
-
-  {
     "id": "vwvento_6",
     "titulo": "Volkswagen",
     "marca": "Volkswagen",
@@ -118,21 +102,6 @@
     "Tipo de Carrocería": "Sedán",
     "Kilometraje": "119.000 km",
     "imagen": "img/renault_logan.png",
-    "link_wa": "https://wa.me/5491149919122"
-  },
-   {
-    "id": "honda",
-    "titulo": " Honda",
-    "marca": "Honda",
-    "modelo": "HR-V 1.8 EXL  CVT",
-    "Puertas":"5 ",
-    "color": "Blanco",
-    "combustible": "Nafta",
-    "transmision": "Automático",
-    "anio": 2017,
-    "Tipo de Carrocería": "SUV",
-    "Kilometraje": "88.900 km",
-    "imagen": "img/hondaHR.png",
     "link_wa": "https://wa.me/5491149919122"
   },
     {
